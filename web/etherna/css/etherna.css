@@ -1,0 +1,113 @@
+/* === Etherna branding ===
+ * Appended to /usr/share/jitsi-meet/css/all.css at image build time.
+ * Brand cyan #00AABE (digital-official; never sample the master JPGs).
+ * Inspired by the Logogenesi guide (Sergio Bianco): dark watery scene, white
+ * logo in the light beam just above the water, cyan accents. Keeps jitsi's
+ * welcome-page structure (recent list etc.).
+ */
+
+:root {
+    --etherna-cyan: #00aabe;
+    --etherna-cyan-hover: #00bdd4;
+}
+
+/* Whole welcome page: deep brand-dark (continues the watery mood) instead of
+ * jitsi's white behind the recent list. */
+.welcome {
+    background: linear-gradient(180deg, #0e2630 0%, #081218 60%) !important;
+}
+
+/* Welcome header = Etherna hero. The evocative water/beam image is anchored to
+ * its base; content is pushed down so it sits just above the depicted water
+ * line at any resolution (per the brand's canonical beam application). */
+.welcome .header {
+    min-height: 44vh !important;
+    flex: 0 0 auto !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: flex-start !important;
+    padding-top: 9vh !important;
+    padding-bottom: 4vh !important;
+    background-image:
+        linear-gradient(0deg, rgba(7, 12, 16, 0.35), rgba(7, 12, 16, 0.35)),
+        url(../images/welcome-background.jpg) !important;
+    background-position: center bottom !important;
+    background-size: cover !important;
+    background-repeat: no-repeat !important;
+}
+
+/* Keep the inner container full width so the room bar isn't shrunk; centre it
+ * and drop jitsi's large default top margin so the block can sit higher. */
+.welcome .header .header-container {
+    width: 100% !important;
+    margin: 0 auto !important;
+}
+
+/* The big central logo carries the symbol, so drop the redundant top-left
+ * watermark on the welcome page. */
+.welcome .header .header-watermark-container {
+    display: none !important;
+}
+
+/* Bring the settings gear down so it sits inline with the top of the logo
+ * (tighter content cluster) instead of floating high above it. */
+.welcome .header .welcome-page-settings {
+    top: 0 !important;
+}
+
+/* Replace the text title with the Etherna logo + payoff image, centered and a
+ * touch narrower than the room bar. The h1 text stays off-screen for a11y/SEO. */
+.welcome .header .header-text-title {
+    background: url(../images/welcome-logo.svg) center / contain no-repeat !important;
+    width: 80% !important;
+    max-width: 360px !important;
+    height: 92px !important;
+    margin: 0 auto 26px !important;
+    text-indent: -9999px !important;
+    white-space: nowrap !important;
+    overflow: hidden !important;
+}
+
+/* Payoff is part of the logo image now; hide the separate text subtitle. */
+.welcome .header .header-text-subtitle {
+    display: none !important;
+}
+
+/* Recent-list card -> dark glass, so it fits the dark watery scene instead of
+ * being a stark white block. */
+.welcome .welcome-card,
+.welcome .welcome-card--blue {
+    background: rgba(255, 255, 255, 0.05) !important;
+    border: 1px solid rgba(255, 255, 255, 0.1) !important;
+    color: #e7eef0 !important;
+}
+
+.welcome .welcome-card-column .welcome-card *,
+.welcome .meetings-list-empty,
+.welcome .meetings-list-empty * {
+    color: #c9d7dc !important;
+}
+
+/* A little breathing room below the recent-list card. */
+.welcome .welcome-cards-container {
+    padding-bottom: 36px !important;
+}
+
+/* Remove the Jitsi mobile-app footer (not our apps/brand). */
+.welcome-footer {
+    display: none !important;
+}
+
+/* Brand cyan on the primary action button. */
+.welcome-page-button,
+.button-primary,
+.primary {
+    background: var(--etherna-cyan) !important;
+    border-color: var(--etherna-cyan) !important;
+}
+
+.welcome-page-button:hover,
+.button-primary:hover,
+.primary:hover {
+    background: var(--etherna-cyan-hover) !important;
+}

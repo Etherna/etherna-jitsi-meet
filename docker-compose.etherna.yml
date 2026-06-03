@@ -1,0 +1,13 @@
+# Etherna production override.
+#
+# Use together with the upstream compose file so that only the `web` service
+# runs the Etherna-branded image, while the rest of the stack uses upstream
+# jitsi/* images at the same stable version.
+#
+#   export JITSI_IMAGE_VERSION=stable-10978   # prosody / jicofo / jvb / ...
+#   export ETHERNA_WEB_VERSION=stable-10978   # Etherna-branded web image
+#   docker compose -f docker-compose.yml -f docker-compose.etherna.yml up -d
+#
+services:
+  web:
+    image: etherna/jitsi-web:${ETHERNA_WEB_VERSION:-stable-10978}
