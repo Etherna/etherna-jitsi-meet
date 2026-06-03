@@ -73,24 +73,23 @@
     display: none !important;
 }
 
-/* Recent-list card -> dark glass, so it fits the dark watery scene instead of
- * being a stark white block. */
-.welcome .welcome-card,
-.welcome .welcome-card--blue {
-    background: rgba(255, 255, 255, 0.05) !important;
-    border: 1px solid rgba(255, 255, 255, 0.1) !important;
-    color: #e7eef0 !important;
-}
-
-.welcome .welcome-card-column .welcome-card *,
-.welcome .meetings-list-empty,
-.welcome .meetings-list-empty * {
-    color: #c9d7dc !important;
-}
-
-/* A little breathing room below the recent-list card. */
+/* Centre the recent-list card vertically in the free space below the hero.
+ * The card keeps jitsi's default light styling (dark, readable text) and just
+ * floats on the dark body. */
 .welcome .welcome-cards-container {
-    padding-bottom: 36px !important;
+    flex: 1 1 auto !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: center !important;
+    align-items: center !important;
+    padding-top: 24px !important;
+    padding-bottom: 24px !important;
+}
+
+/* Centering the container as a flex box would otherwise shrink the card to its
+ * content width; force it back to its normal width (capped by its max-width). */
+.welcome .welcome-card-column {
+    width: 100% !important;
 }
 
 /* Remove the Jitsi mobile-app footer (not our apps/brand). */
