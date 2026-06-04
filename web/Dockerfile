@@ -33,6 +33,10 @@ RUN set -e; \
         /usr/share/jitsi-meet/libs/app.bundle.min.js; \
     sed -i 's/.Env.DISABLE_DEEP_LINKING | default "false"/.Env.DISABLE_DEEP_LINKING | default "true"/' \
         /defaults/settings-config.js; \
+    if [ -f /usr/share/jitsi-meet/pwa-worker.js ]; then \
+        sed -i "s#self.addEventListener('fetch', event => {#&\n    try { if (new URL(event.request.url).pathname.startsWith('/recordings/')) return; } catch (e) {}#" \
+            /usr/share/jitsi-meet/pwa-worker.js; \
+    fi; \
     if [ -f /usr/share/jitsi-meet/manifest.json ]; then \
         sed -i 's/Jitsi Meet/Etherna/g' /usr/share/jitsi-meet/manifest.json; \
     fi; \
