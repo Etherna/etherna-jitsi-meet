@@ -12,7 +12,10 @@ interfaceConfig.PROVIDER_NAME = 'Etherna';
 interfaceConfig.DEFAULT_LOGO_URL = 'images/watermark.svg';
 interfaceConfig.DEFAULT_WELCOME_PAGE_LOGO_URL = 'images/watermark.svg';
 interfaceConfig.SHOW_JITSI_WATERMARK = true;
-interfaceConfig.JITSI_WATERMARK_LINK = 'https://etherna.io';
+// In-conference watermark links to this instance's own home (e.g.
+// https://join.etherna.io/), not the corporate site. Relative so it follows
+// whatever domain the instance is served on.
+interfaceConfig.JITSI_WATERMARK_LINK = '/';
 
 // No secondary brand watermark / "powered by".
 interfaceConfig.SHOW_BRAND_WATERMARK = false;
