@@ -36,8 +36,11 @@ All branding is baked into the `web` image at build time (`web/Dockerfile`):
 
 The `web/Dockerfile` also: appends the CSS to `css/all.css`, appends the
 interface_config overrides, sets the welcome-page browser-tab title to
-"Join etherna" (one targeted patch of `app.bundle.min.js`), and renames the
-PWA manifest to "Etherna".
+"Join etherna" (one targeted patch of `app.bundle.min.js`), renames the PWA
+manifest to "Etherna", and defaults `DISABLE_DEEP_LINKING` to `true` so mobile
+users join straight in the browser (Etherna has no mobile app, so the
+app/download prompt is pointless). Override at runtime with
+`DISABLE_DEEP_LINKING=0` if you ever want the prompt back.
 
 Colours come from `#00AABE` / the brand SVGs — never sampled from the master
 JPGs (a known colour error renders them mint-green).

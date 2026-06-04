@@ -21,6 +21,3 @@ interfaceConfig.SHOW_POWERED_BY = false;
 
 // Dark background -> contrast with the white logo (brand: white on dark).
 interfaceConfig.DEFAULT_BACKGROUND = '#101820';
-
-// We don't ship Etherna mobile apps: don't nag users to open one.
-interfaceConfig.MOBILE_APP_PROMO = false;

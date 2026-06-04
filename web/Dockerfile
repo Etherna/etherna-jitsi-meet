@@ -31,6 +31,8 @@ RUN set -e; \
     cat /tmp/etherna/interface_config.append.js >> /defaults/interface_config.js; \
     sed -i 's#("welcome-page"),document.title=interfaceConfig.APP_NAME#("welcome-page"),document.title="Join etherna"#' \
         /usr/share/jitsi-meet/libs/app.bundle.min.js; \
+    sed -i 's/.Env.DISABLE_DEEP_LINKING | default "false"/.Env.DISABLE_DEEP_LINKING | default "true"/' \
+        /defaults/settings-config.js; \
     if [ -f /usr/share/jitsi-meet/manifest.json ]; then \
         sed -i 's/Jitsi Meet/Etherna/g' /usr/share/jitsi-meet/manifest.json; \
     fi; \
